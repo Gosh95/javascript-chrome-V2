@@ -1,11 +1,40 @@
-const age = parseInt(prompt("how old r u?"));
+const loginForm = document.getElementById("login-form");
+const loginInput = loginForm.querySelector("input");
+const loginButton = loginForm.querySelector("button");
+const username = document.querySelector(".username");
 
-function checkAge(age) {
-    if(age > 19) {
-        alert("성인입니다.");
-    } else {
-        alert("미성년자입니다.");
-    }
+const USERNAME_KEY = "username";
+const CLASSNAME_HIDDEN = "hidden";
+
+function handleLoginSubmit(info) {
+    info.preventDefault();
+
+    loginForm.classList.add(CLASSNAME_HIDDEN);
+
+    const name = loginInput.value;
+    localStorage.setItem(USERNAME_KEY, name);
+
+    showName(name);
+
+    loginInput = "";
 }
 
-checkAge(age);
+function showForm() {
+    loginForm.classList.remove(CLASSNAME_HIDDEN);
+    loginForm.addEventListener("submit", handleLoginSubmit);
+}
+
+function showName(name) {
+    username.innerText = `Hello ${name}`;
+    username.classList.remove(CLASSNAME_HIDDEN);
+}
+
+const savedName = localStorage.getItem(USERNAME_KEY);
+
+if(savedName === null) {
+    //showForm
+    showForm();
+} else {
+    //showName
+    showName(savedName);
+}
