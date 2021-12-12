@@ -1,2 +1,2 @@
 # nomard-javascript-chrome
- Create chrome app with Javascript
+ Create chrome app with Javascript V2
