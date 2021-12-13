@@ -6,8 +6,8 @@ const username = document.querySelector(".username");
 const USERNAME_KEY = "username";
 const CLASSNAME_HIDDEN = "hidden";
 
-function handleLoginSubmit(info) {
-    info.preventDefault();
+function handleLoginSubmit(event) {
+    event.preventDefault();
 
     loginForm.classList.add(CLASSNAME_HIDDEN);
 
