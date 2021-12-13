@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Momentum</title>
 </head>
 <body>
+<div id="weather">
+    <img></img>
+    <span></span>
+    <span></span>
+</div>
+<div>
     <form id="login-form" class="hidden">
         <input 
             required
@@ -17,6 +23,35 @@
         <button>Log In</button>
     </form>
     <h1 class="username hidden"></h1>
-<script src="app.js"></script>
+</div>
+
+<div>
+    <h2 class="clock blind"></h2>
+</div>
+
+<div class="quotes">
+    <p></p>
+    <p></p>
+    <p></p>
+</div>
+
+<div>
+    <form id="todo-form">
+        <label for="todo">To Do List</label>
+        <input required type="text" id="todo" placeholder="To Do List" />
+        <button type="submit">Enter</button>
+    </form>
+</div>
+<div>
+    <ul id="todo-list">
+    </ul>
+</div>
+
+<script src="js/greeting.js"></script>
+<script src="js/clock.js"></script>
+<script src="js/quotes.js"></script>
+<script src="js/background.js"></script>
+<script src="js/todo.js"></script>
+<script src="js/weather.js"></script>
 </body>
 </html>
