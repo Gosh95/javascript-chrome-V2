@@ -20,11 +20,18 @@ function getGeoOk(positionInfo) {
     fetch(API)
     .then(response => response.json())
     .then((data) => {
-        const location = document.querySelector("#weather span:first-child");
-        const temp = document.querySelector("#weather span:nth-child(2)");
-        const 
+        const icon = document.querySelector("#weather img");
+        const location = document.querySelector("#weather span:nth-child(2)");
+        const temp = document.querySelector("#weather span:last-child");
 
-        weatherIcon.innerText = data.weather[0].icon;
+        const iconCode = data.weather[0].icon;
+        icon.setAttribute("src", `weathericons/${iconCode}.png`);
+
+        const city = data.name;
+        const country = data.sys.country;
+        location.innerText = `location: ${city} in "${country}"`;
+
+        temp.innerText = `temperature: ${data.main.temp}°C`;
     });
 }
 
