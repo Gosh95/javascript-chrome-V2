@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Hi+Melody&display=swap" rel="stylesheet">
     <title>Momentum</title>
 </head>
 <body>
-<div id="weather">
+
+<div id="weather" class="hidden">
     <div class="weather-icon">
-        <img ></img>
-        <span>▼</span>
+        <img sizes="15x15" src="weathericons/unknown.png"></img>
+        <span>▲</span>
     </div>
-    <div class="hidden">
-        <span></span>
-        <span></span>
+    <div class="weather-info">
+        <span>location</span>
+        <span>temperature</span>
     </div>
 </div>
+
+<div class="container">
 <div>
     <form id="login-form" class="hidden">
         <input 
@@ -43,15 +47,18 @@
 <div>
     <form id="todo-form">
         <label for="todo">To Do List</label>
-        <input required type="text" id="todo" placeholder="To Do List" />
-        <button type="submit">Enter</button>
+        <div>
+            <input required type="text" id="todo" placeholder="Do Your Dream" />
+            <button type="submit">Enter</button>
+        </div>
     </form>
 </div>
-<div>
+<div class="todos">
     <ul id="todo-list">
     </ul>
 </div>
 
+</div>
 <script src="js/greeting.js"></script>
 <script src="js/clock.js"></script>
 <script src="js/quotes.js"></script>
