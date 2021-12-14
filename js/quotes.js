@@ -40,7 +40,6 @@ const quotes = [
      author: "Usain Bolt"},
 ];
 
-const container = document.querySelector(".quotes");
 const quoteEng = document.querySelector(".quotes p:first-child");
 const quoteKor = document.querySelector(".quotes p:nth-child(2)");
 const author = document.querySelector(".quotes p:last-child");
@@ -49,7 +48,7 @@ function changeQuotes() {
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
     quoteEng.innerText = randomQuote.english;
-    quoteKor.innerText = randomQuote.korean;
+    quoteKor.innerText = `"${randomQuote.korean}"`;
     author.innerText = `-${randomQuote.author}`;
 }
 
