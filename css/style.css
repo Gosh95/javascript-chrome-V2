@@ -28,3 +28,14 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.weather-info {
+  background-color: rgba(243, 234, 234, 0.6);
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.weather-icon span {
+  cursor: pointer;
+}
