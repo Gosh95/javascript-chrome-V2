@@ -1,8 +1,11 @@
 const toDoForm = document.getElementById("todo-form");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.getElementById("todo-list");
+const toDoListSecond = document.getElementById("todo-list-second");
 
+let idx = 1;
 let toDos = [];
+
 const TODOS_KEY = "toDos";
 
 function confirmComplete(text) {
@@ -14,6 +17,7 @@ function completeToDo(event) {
     const text = String(li.innerText).replace("complete", "");
     
     if(confirmComplete(text)) {
+        alert("수고하셨습니다.");
         li.remove();
     } else {
         alert("조금만 더 힘내자!");
@@ -44,21 +48,26 @@ function showToDo(toDoObj) {
     completeBtn.innerText = "complete";
     completeBtn.addEventListener("click", completeToDo);
 
-    toDoList.appendChild(li);
+    if(toDoObj.id % 2 == 1) {
+        toDoList.appendChild(li);
+    } else {
+        toDoListSecond.appendChild(li);
+    }
 }
+
 function handleToDoSubmit(event) {
     event.preventDefault();
 
     const toDo = toDoInput.value;
     const toDoObj = {
         //integer 인줄 알았는데 string 으로 잡힌다.
-        id: Date.now(),
+        id: idx++,
         text: toDo,
     };
 
     toDoInput.value = "";
 
-    if(toDos.length > 10) {
+    if(toDos.length >= 10) {
         return alert("🙉 할 일이 너무 많습니다.");
     } else {
         toDos.push(toDoObj);
