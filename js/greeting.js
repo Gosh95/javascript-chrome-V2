@@ -1,33 +1,56 @@
-const loginForm = document.getElementById("login-form");
-const loginInput = loginForm.querySelector("input");
-const loginButton = loginForm.querySelector("button");
+const greetingForm = document.getElementById("greeting-form");
+const greetingInput = greetingForm.querySelector("input");
 const username = document.querySelector(".username");
+const condition = document.querySelector(".condition");
+const question =  document.querySelector(".question");
+const emotions = document.querySelectorAll(".emotions span");
 
 const USERNAME_KEY = "username";
-const CLASSNAME_HIDDEN = "hidden";
+const NONE_CLASS = "none";
+const CHEKCED_CLASS = "checked";
+const CENTER_CLASS = "center";
 
 function handleLoginSubmit(event) {
     event.preventDefault();
 
-    loginForm.classList.add(CLASSNAME_HIDDEN);
+    greetingForm.classList.add(NONE_CLASS);
+    greetingForm.classList.remove(CENTER_CLASS);
 
-    const name = loginInput.value;
+    const name = greetingInput.value;
     localStorage.setItem(USERNAME_KEY, name);
 
     showName(name);
 
-    loginInput = "";
+    greetingInput.value = "";
 }
 
 function showForm() {
-    loginForm.classList.remove(CLASSNAME_HIDDEN);
-    loginForm.addEventListener("submit", handleLoginSubmit);
+    greetingForm.classList.remove(NONE_CLASS);
+    greetingForm.classList.add(CENTER_CLASS);
+    greetingForm.addEventListener("submit", handleLoginSubmit);
 }
 
 function showName(name) {
     username.innerText = `Hello ${name}`;
-    username.classList.remove(CLASSNAME_HIDDEN);
+    question.innerText = "How are you today?";
+    username.classList.remove(NONE_CLASS);
+    condition.classList.remove(NONE_CLASS);
 }
+
+function clickEmotion(event) {
+    const emotion = event.target.parentElement;
+    emotion.classList.toggle(CHEKCED_CLASS);
+
+    emotions.forEach((element) => {
+        if(element !== emotion) {
+            element.classList.remove(CHEKCED_CLASS);
+        }
+    })
+}
+
+emotions.forEach((emotion) => {
+    emotion.addEventListener("click", clickEmotion);
+})
 
 const savedName = localStorage.getItem(USERNAME_KEY);
 
