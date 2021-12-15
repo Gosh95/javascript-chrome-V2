@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Hi+Melody&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Hi+Melody&family=Jua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <title>Momentum</title>
 </head>
 <body>
@@ -22,31 +23,56 @@
 
 <div class="container">
 <div>
-    <form id="login-form" class="hidden">
+    <form id="greeting-form" class="none">
         <input 
             required
             maxLength="15"
             type="text" 
             placeholder="What is your name?" 
         />
-        <button>Log In</button>
+        <button type="submit">Submit</button>
     </form>
-    <h1 class="username hidden"></h1>
+    <h1 class="username none"></h1>
+
+    <div class="condition none">
+        <h3 class="question"></h3>
+        <div class="emotions">
+            <span class="basic"><i class="far fa-tired"></i></span>
+            <span class="basic"><i class="far fa-frown"></i></span>
+            <span class="basic"><i class="far fa-meh" size="5x"></i></span>
+            <span class="basic"><i class="far fa-smile-beam"></i></span>
+            <span class="basic"><i class="far fa-grin-squint"></i></span>
+        </div>
+    </div>
 </div>
 
-<div>
+
+<!-- <div>
     <h2 class="clock blind"></h2>
-</div>
+</div> -->
 
 <div class="quotes">
     <p></p>
     <p></p>
     <p></p>
 </div>
+</div>
+<div class="background-remote">
+    <span>
+        <i class="fas fa-caret-left"></i>
+    </span>
+    <span>
+        <i class="fas fa-caret-right"></i>
+    </span>
+</div>
 
 <div>
     <form id="todo-form">
-        <label for="todo">To Do List</label>
+        <div>
+            <span><</span>
+            <label for="todo">To Do List</label>
+            <span>></span>
+        </div>
         <div>
             <input required type="text" id="todo" placeholder="Do Your Dream" />
             <button type="submit">Enter</button>
@@ -54,13 +80,18 @@
     </form>
 </div>
 <div class="todos">
-    <ul id="todo-list">
-    </ul>
+    <div>
+        <ul id="todo-list">
+        </ul>
+    </div>
+    <div>
+        <ul id="todo-list-second">
+        </ul>
+    </div>
 </div>
 
-</div>
 <script src="js/greeting.js"></script>
-<script src="js/clock.js"></script>
+<!-- <script src="js/clock.js"></script> -->
 <script src="js/quotes.js"></script>
 <script src="js/background.js"></script>
 <script src="js/todo.js"></script>
