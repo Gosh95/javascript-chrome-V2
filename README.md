@@ -1,2 +1,2 @@
 # nomard-javascript-chrome
- Create chrome app with Javascript V2
+A clone of the productivity chrome app Momentum on Vanilla JS
